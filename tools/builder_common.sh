@@ -559,10 +559,10 @@ clone_to_staging_area() {
 	tar -C ${PRODUCT_SRC} -c -f - . | \
 		tar -C ${STAGE_CHROOT_DIR} -x -p -f -
 
-	if [ "${PRODUCT_NAME}" != "pfSense" ]; then
-		mv ${STAGE_CHROOT_DIR}/usr/local/sbin/pfSense-upgrade \
-			${STAGE_CHROOT_DIR}/usr/local/sbin/${PRODUCT_NAME}-upgrade
-	fi
+#	if [ "${PRODUCT_NAME}" != "pfSense" ]; then
+#		mv ${STAGE_CHROOT_DIR}/usr/local/sbin/pfSense-upgrade \
+#			${STAGE_CHROOT_DIR}/usr/local/sbin/${PRODUCT_NAME}-upgrade
+#	fi
 
 	mkdir -p ${STAGE_CHROOT_DIR}/etc/mtree
 	mtree -Pcp ${STAGE_CHROOT_DIR}/var > ${STAGE_CHROOT_DIR}/etc/mtree/var.dist
